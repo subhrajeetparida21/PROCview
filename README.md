@@ -1,71 +1,93 @@
-PROCview – Custom Linux Process Viewer (my_ps)
-Project Overview
+# PROCview – Custom Linux Process Viewer (`my_ps`)
 
-PROCview is a custom Linux command-line tool written in C.
-It creates a user-defined command called my_ps that merges the output of:
+---
 
-ps aux
+## Project Overview
 
-ps -eLf
+**PROCview** is a custom Linux command-line tool written in **C**.  
+It creates a user-defined command called **`my_ps`** that merges the output of:
 
-The merged output is stored in merged.txt and displayed on the terminal.
+- `ps aux`  
+- `ps -eLf`
 
-Objective
+The merged output is stored in **`merged.txt`** and displayed on the terminal.
+
+---
+
+## Objective
 
 This project demonstrates:
 
-Linux process monitoring
+- Linux process monitoring  
+- System call usage using `system()`  
+- File handling in C  
+- Command-line tool creation  
+- Shell output redirection  
 
-System call usage (system())
+---
 
-File handling in C
+## Concepts Used
 
-Command-line tool creation
+- `system()`  
+- `fopen()`, `fclose()`  
+- `fgets()`, `fprintf()`  
+- Shell redirection (`>`)  
+- Linux process commands  
 
-Shell output redirection
+---
 
-Concepts Used
+## How It Works
 
-system()
+1. Executes the following commands:
 
-fopen(), fclose()
+   ```bash
+   ps aux > x1.txt
+   ps -eLf > x2.txt
+   ```
 
-fgets(), fprintf()
+2. Opens both files in C.  
+3. Merges their contents into `merged.txt`.  
+4. Displays `merged.txt` in terminal.
 
-Shell redirection (>)
+---
 
-Linux process commands
+## Compilation
 
-How It Works
-
-Executes:
-
-ps aux > x1.txt
-
-ps -eLf > x2.txt
-
-Opens both files in C.
-
-Merges their contents into merged.txt.
-
-Displays merged.txt in terminal.
-
-Compilation
+```bash
 gcc project3_AI.c -o my_ps
+```
 
-Execution
+---
+
+## Execution
+
+```bash
 ./my_ps
+```
 
-Install As Custom Command
+---
+
+## Install As Custom Command
+
+```bash
 sudo cp my_ps /usr/local/bin/
+```
+
+Now run from anywhere:
+
+```bash
 my_ps
+```
 
-Files Generated
+---
 
-x1.txt
+## Files Generated
 
-x2.txt
+- `x1.txt`  
+- `x2.txt`  
+- `merged.txt`  
+- `my_ps`
 
-merged.txt
-
-my_ps
+---
+B.Tech CSE  
+NIT Durgapur
